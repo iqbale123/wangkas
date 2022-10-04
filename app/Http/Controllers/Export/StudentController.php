@@ -17,7 +17,7 @@ class StudentController extends Controller implements ExcelExportInterface
     public function __invoke()
     {
         $spreadsheet = new Spreadsheet();
-        $sheet = $this->setHeaderExcel($spreadsheet);
+        $sheet = $this->setExcelheader($spreadsheet);
 
         $students = Student::with('school_class:id,name', 'school_major:id,name')->orderBy('name')->get();
 
